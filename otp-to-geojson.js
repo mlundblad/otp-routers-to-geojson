@@ -5,16 +5,12 @@ const Soup = imports.gi.Soup;
 
 function getPolygon(routerInfo) {
     let coords = [];
-    log(routerInfo.polygon.coordinates[0].length + ' ' + routerInfo.routerId);
     if (routerInfo.polygon.coordinates[0].length > 2) {
 	routerInfo.polygon.coordinates[0].forEach(function(coordinate) {
-	    log('coord: ' + coordinate[1] + ',' + coordinate[0]);
 	    coords.push([coordinate[0], coordinate[1]]);
 	});
 	coords.push([routerInfo.polygon.coordinates[0][0][0],
 		     routerInfo.polygon.coordinates[0][0][1]]);
-    
-	log(coords);
     
 	return coords;
     } else {
